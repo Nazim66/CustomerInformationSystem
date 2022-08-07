@@ -1,0 +1,136 @@
+﻿<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.10.15/dataRender/datetime.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/searchpanes/2.0.2/css/searchPanes.dataTables.min.css"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/select/1.4.0/css/select.dataTables.min.css"></script>
+
+
+
+<div id="popupdiv" title="Add new Customer" style="display: none">
+    <div class="row">
+        <div class="col-6">
+            <label>CustomerId</label><br />
+            <input type="text" id="customerId" class="form-control border border-primary" />
+        </div>
+        <div class="col-6">
+            <label>Sex</label><br />
+            <select class="form-control" id="ddlSex">
+                <option value="0">Select Sex</option>
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+            </select>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-6">
+            <label>Name</label><br />
+            <input type="text" id="customerName" class="form-control border border-primary" />
+        </div>
+        <div class="col-6">
+            <label>Discount</label><br />
+            <input type="text" id="discount" class="form-control border border-primary" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-6">
+            <label>Phone</label><br />
+            <input type="text" id="phone" class="form-control border border-primary" />
+        </div>
+        <div class="col-6">
+            <label>LandPhone</label><br />
+            <input type="text" id="landPhone" class="form-control border border-primary" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-6">
+            <label>Post Code</label><br />
+            <input type="text" id="postCode" class="form-control border border-primary" />
+        </div>
+        <div class="col-6">
+            <label>Post Office</label><br />
+            <input type="text" id="postOffice" class="form-control border border-primary" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-6">
+            <label>Thana</label><br />
+            <input type="text" id="thana" class="form-control border border-primary" />
+        </div>
+        <div class="col-6">
+            <label>Zilla</label><br />
+            <input type="text" id="zilla" class="form-control border border-primary" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-6">
+            <label>Address1</label> <br />
+            <textarea id="address1" rows="3" cols="3" class="form-control border border-primary">
+            </textarea>
+        </div>
+        <div class="col-6">
+            <label>Permanent Address</label> <br />
+            <textarea id="pAddress" rows="3" cols="35" class="form-control border border-primary">
+            </textarea>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-12">
+            <label>Reamrks</label> <br />
+            <textarea id="remarks" rows="3" cols="35" class="form-control border border-primary">
+            </textarea>
+        </div>
+    </div>
+    <br />
+    <div style="margin-left:275px">
+        <a id="btnSave" class="btn btn-sm btn-success" onclick="SaveCustomerInfo()">Save</a>
+        <a id="btnUpdate" class="btn btn-sm btn-success" onclick="UpdateCustomerInfo()">Update</a>
+        <a class="btn btn-sm btn-danger" onclick="closePopup()">Cancel</a>
+    </div>
+</div>
+
+<div style="float:right;margin-bottom:15px;">
+    <a class="btn btn-sm btn-primary text-white" id="btnclick"><i class="fa fa-plus text-white" aria-hidden="true"></i>New</a>
+</div>
+<div style="float:right;margin-bottom:15px; margin-right:10px">
+    <a class="btn btn-sm btn-success text-white"><i <i class="fa fa-solid fa-print text-white"></i>Print</a>
+</div>
+<div class="p-4 border rounded">
+    <table id="tblData" class="table  table-bordered" style="width:100%">
+        <thead class="">
+            <tr class="table-info">
+                <th>Customer Id<i class="fal fa-search"></i></th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Discount</th>
+                <th>Sex</th>
+                <th>Remarks</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+@section scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/Customer.js"></script>
+}
