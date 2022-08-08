@@ -48,6 +48,7 @@ function UpdateCustomerInfo() {
 
 
 function getData() {
+    debugger;
     object = new Object();
     object.CustomerId = $("#customerId").val();
     object.Sex = $('#ddlSex option:selected').val();
