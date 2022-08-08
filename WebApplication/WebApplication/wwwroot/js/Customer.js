@@ -94,7 +94,7 @@ function loadDataTable() {
             { "data": "name", "width": "15%"},
             { "data": "phone", "width": "15%"},
             { "data": "discount", "width": "15%" },
-            { "data": "sex", "width": "15%" },
+            { "data": "genderName", "width": "15%" },
             { "data": "remarks", "width": "15%" },
             {
                 "data": "customerId",                

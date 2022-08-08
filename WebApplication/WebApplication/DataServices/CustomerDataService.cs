@@ -21,7 +21,7 @@ namespace WebApplication.DataServices
         public List<Customer> GetAll()
         {
             List<Customer> customers = new List<Customer>();
-            string query = "select * from Customers";
+            string query = "select CustomerId, Name, Phone, Discount, Sex, Remarks, Status, case when Sex = 1 then 'Male' else 'Female' end as GenderName  from Customers";
             SqlCommand cmd = new SqlCommand(query, _db);
             _db.Open();
             SqlDataReader reader = cmd.ExecuteReader();
@@ -38,6 +38,7 @@ namespace WebApplication.DataServices
                     Sex = reader.GetInt32(reader.GetOrdinal("Sex")),
                     Remarks = reader.GetString(reader.GetOrdinal("Remarks")),
                     Status = reader.GetBoolean(reader.GetOrdinal("Status")),
+                    GenderName = reader.GetString(reader.GetOrdinal("GenderName")),
                 };
                 customers.Add(c);
             }

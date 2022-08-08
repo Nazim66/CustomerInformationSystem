@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dpR9RZ7HpY04G5jgHYflR8fWNGMF+dV+A5LaZ5S9JvQvdW10Ht+37M1wPO7Qh0uWK9o21OsGwuccgVJUX9MwtA==",
+  "dgSpecHash": "tokMHXmG5HLGLNDkDrU4DiJDKd03zhEmSQrSneS6OkNsCLOXhCm3Fwf+s3t6IZpAE3OqYdw0+YvqvdCl4Ws4nA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\source\\repos\\WebApplication\\WebApplication\\WebApplication.csproj",
+  "projectFilePath": "D:\\CustomerInformationSystem\\WebApplication\\WebApplication\\WebApplication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\3.1.24\\microsoft.aspnetcore.mvc.razor.extensions.3.1.24.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\3.1.24\\microsoft.aspnetcore.mvc.razor.runtimecompilation.3.1.24.nupkg.sha512",

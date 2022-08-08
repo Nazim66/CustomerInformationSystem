@@ -24,5 +24,6 @@ namespace WebApplication.Models
         public string Address { get; set; }
         public string PermanentAddress { get; set; }
         public bool Status { get; set; } = false;
+        public string GenderName { get; set; } = null;
     }
 }
